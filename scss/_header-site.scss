@@ -1,0 +1,131 @@
+.header-site {
+    background-image: image('mobile/image-hero.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+
+    .header-site__container {
+        padding: 1rem;
+        
+        .header-site__heading {
+            text-transform: uppercase;
+            margin: 150px 0;
+            padding: 1rem;
+            font-size: 42px;
+            line-height: 52px;
+            border: 1px solid $white;
+        }
+    }
+
+    .header-site__links-group {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .header-site__link--logo img {
+        max-width: 80%;
+    }
+
+    .icon-menu {
+        background-image: image('icon-hamburger.svg');
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-size: 100%;
+        width: 16px;
+        height: 27px;
+        display: block;
+    }
+}
+
+//menu on mobile
+.header-site__menu {
+    position: absolute;
+    z-index: 3;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    transform: translateX(-100%);
+    transition: transform 0.3s;
+    background-color: $black;
+
+    ul {
+        background-color: $black;
+        width: 100vw;
+        height: 100vh;
+        padding: 5rem;
+        display: flex;
+        flex-direction: column;
+        row-gap: 2rem;
+        text-transform: uppercase;
+        
+        a {
+            color: $white;
+        }
+
+        label .close {
+            background-image: image('icon-close.svg');
+        }
+    }
+}
+
+// when we open the menu
+.header-site__links-group > [type="checkbox"]:checked ~ nav {
+    transform: translateX(0%);
+    z-index: 2;
+    top: 0;
+    left: 0;
+  }
+
+  #menu-checkbox {
+    position: absolute;
+    top: -100%;
+    left: 0;
+    z-index: -1;
+  }
+
+@media(min-width: 700px) {
+    .header-site__menu {
+        position: relative;
+        background-color: transparent;
+        transform: none;
+
+        ul {
+            background-color: transparent;
+            width: auto;
+            height: auto;
+            padding: 0;
+            display: flex;
+            flex-direction: row;
+            gap: 2rem;
+            text-transform: capitalize;
+
+        }
+    }
+
+    .header-site {
+        background-image: image('desktop/image-hero.jpg');
+
+        .header-site__container {
+            padding:1rem 0;
+
+            .header-site__heading {
+                margin: 150px 0;
+                padding: 2rem;
+                font-size: 56px;
+                max-width: 40%;
+            }
+        }
+
+        .header-site__link--logo img {
+            max-width: 100%;
+        }
+
+        .header-site__links-group {
+            .icon-menu {
+                display: none;
+            }
+        }
+    }
+}
